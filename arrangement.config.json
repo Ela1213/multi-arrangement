@@ -1,0 +1,25 @@
+{
+  "study_name": "Study 3: English word similarity arrangement (93 words)",
+  "ma_instructions": [
+    "Please arrange the words according to how similar they seem. Drag every item into the white circle.",
+    "Similar items are placed close together; dissimilar items are placed far apart. Use the whole circle.",
+    "Click Done when all words are inside the circle and you are satisfied."
+  ],
+  "ma_config": {
+    "time_limit_minutes": 60,
+    "evidence_threshold": 0.5,
+    "min_subset_size": 15,
+    "max_subset_size": 25,
+    "skip_initial": false,
+    "utility_exponent": 10,
+    "time_cost_exponent": 1.5,
+    "evidence_weight_mode": "k2012",
+    "evidence_alpha": 2,
+    "use_inverse_mds": false,
+    "stop_mode": "either",
+    "max_trials": null,
+    "subset_method": "lift_weakest"
+  },
+  "instruction_image": "/instruction-reference.png",
+  "completion_url": ""
+}

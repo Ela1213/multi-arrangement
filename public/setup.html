@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多重排列 · 研究者设置</title><link rel="stylesheet" href="/style.css"></head>
+<body class="setup-body"><main class="setup-wrap">
+  <header class="setup-header"><div><p class="eyebrow">RESEARCHER SETUP · LOCAL DEMO</p><h1>多重排列实验设置</h1><p>保存后生成一个新材料版本。旧数据保存在本地数据库，旧版本链接不再用于新被试。</p></div><a class="button secondary" href="/">打开被试入口</a></header>
+  <form id="setup-form">
+    <section class="setup-card"><span class="step">ACCESS</span><h2>研究者访问</h2><label>管理员密钥（本地测试可留空；线上部署时必填）<input id="researcher-key" type="password" autocomplete="off" placeholder="Enter the researcher admin key"></label><p class="small">密钥只保留在当前浏览器标签会话，不写入材料或导出文件。</p></section>
+    <section class="setup-card"><span class="step">01 / MATERIALS</span><h2>实验材料</h2>
+      <label>研究名称 <input id="study-name-input" maxlength="120" required></label>
+      <label>词语（每行一个；首轮全部呈现）<textarea id="words-input" rows="11" required spellcheck="false"></textarea></label>
+      <div class="row"><span id="word-count">0 个词</span><label class="file-label">导入 TXT / CSV <input id="words-file" type="file" accept=".txt,.csv,text/plain,text/csv"></label></div>
+      <label>可选：上传词语图片（可多选；文件名须与词语相同，例如 apple.png）<input id="word-images-files" type="file" accept="image/png,image/jpeg,image/webp" multiple></label>
+      <label class="inline"><input id="clear-word-images" type="checkbox"> 清除现有词语图片，改用文字卡片</label>
+      <p class="small">未上传图片的词语显示为统一字体卡片。修改词表时，已移除词语的图片映射会自动移除。</p>
+    </section>
+    <section class="setup-card"><span class="step">02 / INSTRUCTIONS</span><h2>指导语</h2>
+      <label>可编辑文字（按空行分段）<textarea id="instructions-input" rows="8" required></textarea></label>
+      <label>指导语图片（可选 PNG / JPEG，优先显示在文字上方）<input id="instruction-file" type="file" accept="image/png,image/jpeg"></label>
+      <div class="row"><label class="inline"><input id="show-image" type="checkbox"> 显示指导语图片</label><span id="image-note" class="small"></span></div>
+    </section>
+    <section class="setup-card"><span class="step">03 / ALGORITHM</span><h2>任务与算法</h2>
+      <div class="settings-grid">
+        <label>正式 RDM <select id="rdm-method"><option value="weighted">逐轮尺度对齐 + 加权合成</option><option value="weighted_imds">加权合成 + inverse MDS</option></select></label>
+        <label>后续轮次 <select id="subset-method"><option value="lift_weakest">Lift-the-Weakest · 限定词数</option><option value="lift_weakest_unbounded">Lift-the-Weakest · 允许较大子集</option></select></label>
+        <label>停止规则 <select id="stop-mode"><option value="either">时间或证据阈值先达到</option><option value="time">仅按时间</option><option value="threshold">仅按证据阈值</option></select></label>
+        <label>时间上限（分钟）<div class="preset"><select data-target="time-limit"><option value="10">10</option><option value="30">30</option><option value="60">60</option><option value="custom">自定义</option></select><input id="time-limit" type="number" min="0.1" max="240" step="0.1" required></div></label>
+        <label>最弱词对证据阈值<div class="preset"><select data-target="threshold"><option value="0.35">0.35</option><option value="0.5">0.5</option><option value="0.8">0.8</option><option value="custom">自定义</option></select><input id="threshold" type="number" min="0" max="1" step="0.01" required></div></label>
+        <label>后续轮次最少词数<div class="preset"><select data-target="min-size"><option value="4">4</option><option value="8">8</option><option value="15">15</option><option value="custom">自定义</option></select><input id="min-size" type="number" min="3" step="1" required></div></label>
+        <label>后续轮次最多词数<div class="preset"><select data-target="max-size"><option value="6">6</option><option value="12">12</option><option value="25">25</option><option value="custom">自定义</option></select><input id="max-size" type="number" min="3" step="1" required></div></label>
+        <label>最多轮数（可留空，便于测试）<div class="preset"><select data-target="max-trials"><option value="">不限</option><option value="3">3</option><option value="10">10</option><option value="custom">自定义</option></select><input id="max-trials" type="number" min="1" max="500" step="1" placeholder="不限"></div></label>
+      </div>
+      <p class="small">首轮固定呈现全部词语。后续子集由已有距离与证据权重计算；轮数上限用于短程测试，正式采集可留空。</p>
+    </section>
+    <section class="setup-card"><span class="step">04 / FINISH</span><h2>结束与数据</h2>
+      <label>结束跳转链接（可留空；正式收集填 Prolific completion URL）<input id="completion-url" type="url" placeholder="https://app.prolific.com/submissions/complete?cc=..."></label>
+      <div class="row"><a class="button secondary researcher-export" data-format="json" href="/api/researcher/export?format=json">下载当前版本 JSON（含 RDM）</a><a class="button secondary researcher-export" data-format="csv" href="/api/researcher/export?format=csv">下载逐轮 CSV</a></div>
+    </section>
+    <div class="setup-footer"><button id="save-setup" type="submit">保存设置并生成 Demo</button><p id="setup-status" role="status"></p></div>
+  </form>
+  <section id="setup-result" class="setup-card" hidden><h2>设置已保存</h2><p>被试入口：</p><a id="participant-link" href="#"></a><p class="small">本地可使用测试 ID；线上请在 Prolific 中设置此入口，并启用 PROLIFIC_PID、STUDY_ID、SESSION_ID 参数。</p></section>
+</main><script src="/setup.js"></script></body></html>

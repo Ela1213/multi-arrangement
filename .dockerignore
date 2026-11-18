@@ -1,0 +1,12 @@
+.env
+data
+backups
+node_modules
+.git
+__pycache__
+*.pyc
+.venv
+.env.production
+.env.production.*
+formal-first-round.png
+materials/*.xlsx

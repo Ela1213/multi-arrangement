@@ -1,0 +1,44 @@
+databases:
+  - name: arrangement93-db
+    region: frankfurt
+    plan: 0.1c-256mb
+    databaseName: arrangement93
+    user: arrangement93
+    ipAllowList: []
+
+services:
+  - type: web
+    name: arrangement93
+    runtime: docker
+    dockerfilePath: ./Dockerfile.production
+    autoDeployTrigger: "off"
+    region: frankfurt
+    plan: 0.5c-512mb
+    healthCheckPath: /api/health
+    disk:
+      name: arrangement93-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: STUDY_PROFILE
+        value: formal
+      - key: STUDY_DATA_ROOT
+        value: /data
+      - key: STUDY_MATERIALS_ROOT
+        value: /data/materials
+      - key: DATABASE_URL
+        fromDatabase:
+          name: arrangement93-db
+          property: connectionString
+      - key: EXPERIMENTER_KEY_SECRET
+        generateValue: true
+      - key: RESEARCHER_ADMIN_KEY
+        sync: false
+      - key: PORT
+        value: "3500"
+      - key: API_PORT
+        value: "8000"
+      - key: PYTHON_BIN
+        value: /opt/venv/bin/python

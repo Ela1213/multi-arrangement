@@ -1,0 +1,13 @@
+.env
+data/
+backups/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.env.production
+.env.production.*
+!.env.production.example
+formal-*.png
+*.log

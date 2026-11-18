@@ -1,0 +1,15 @@
+FROM node:24-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:${PATH}" PYTHONPATH=/app/backend
+WORKDIR /app
+COPY backend/requirements.txt /app/requirements.txt
+RUN python -m pip install --no-cache-dir -r /app/requirements.txt
+COPY backend /app/backend
+COPY package.json server.mjs prepare_study.py start_container.sh /app/
+COPY arrangement.config.json words.txt word-images.json /app/
+COPY public /app/public
+RUN chmod +x /app/start_container.sh
+EXPOSE 3500
+CMD ["/app/start_container.sh"]

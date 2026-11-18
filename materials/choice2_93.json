@@ -1,0 +1,746 @@
+[
+  {
+    "ordinal": 0,
+    "word": "rabbit",
+    "category": "自然物及身体",
+    "domain": "Animals",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 2
+  },
+  {
+    "ordinal": 1,
+    "word": "sheep",
+    "category": "自然物及身体",
+    "domain": "Animals",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 3
+  },
+  {
+    "ordinal": 2,
+    "word": "sparrow",
+    "category": "自然物及身体",
+    "domain": "Animals",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 4
+  },
+  {
+    "ordinal": 3,
+    "word": "duck",
+    "category": "自然物及身体",
+    "domain": "Animals",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 5
+  },
+  {
+    "ordinal": 4,
+    "word": "snake",
+    "category": "自然物及身体",
+    "domain": "Animals",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 6
+  },
+  {
+    "ordinal": 5,
+    "word": "eye",
+    "category": "自然物及身体",
+    "domain": "The body",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 7
+  },
+  {
+    "ordinal": 6,
+    "word": "heart",
+    "category": "自然物及身体",
+    "domain": "The body",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 8
+  },
+  {
+    "ordinal": 7,
+    "word": "brain",
+    "category": "自然物及身体",
+    "domain": "The body",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 9
+  },
+  {
+    "ordinal": 8,
+    "word": "skin",
+    "category": "自然物及身体",
+    "domain": "The body",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 10
+  },
+  {
+    "ordinal": 9,
+    "word": "knee",
+    "category": "自然物及身体",
+    "domain": "The body",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 11
+  },
+  {
+    "ordinal": 10,
+    "word": "sea",
+    "category": "自然物及身体",
+    "domain": "The physical world",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 12
+  },
+  {
+    "ordinal": 11,
+    "word": "forest",
+    "category": "自然物及身体",
+    "domain": "The physical world",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 13
+  },
+  {
+    "ordinal": 12,
+    "word": "mountain",
+    "category": "自然物及身体",
+    "domain": "The physical world",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 14
+  },
+  {
+    "ordinal": 13,
+    "word": "rainbow",
+    "category": "自然物及身体",
+    "domain": "The physical world",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 15
+  },
+  {
+    "ordinal": 14,
+    "word": "snow",
+    "category": "自然物及身体",
+    "domain": "The physical world",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 16
+  },
+  {
+    "ordinal": 15,
+    "word": "belt",
+    "category": "人造物与用品",
+    "domain": "Clothing and grooming",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 17
+  },
+  {
+    "ordinal": 16,
+    "word": "scarf",
+    "category": "人造物与用品",
+    "domain": "Clothing and grooming",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 18
+  },
+  {
+    "ordinal": 17,
+    "word": "clothes",
+    "category": "人造物与用品",
+    "domain": "Clothing and grooming",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 19
+  },
+  {
+    "ordinal": 18,
+    "word": "boots",
+    "category": "人造物与用品",
+    "domain": "Clothing and grooming",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 20
+  },
+  {
+    "ordinal": 19,
+    "word": "cap",
+    "category": "人造物与用品",
+    "domain": "Clothing and grooming",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 21
+  },
+  {
+    "ordinal": 20,
+    "word": "glass",
+    "category": "人造物与用品",
+    "domain": "Basic actions and technology | objects",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 22
+  },
+  {
+    "ordinal": 21,
+    "word": "bag",
+    "category": "人造物与用品",
+    "domain": "Basic actions and technology | objects",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 23
+  },
+  {
+    "ordinal": 22,
+    "word": "broom",
+    "category": "人造物与用品",
+    "domain": "Basic actions and technology | objects",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 24
+  },
+  {
+    "ordinal": 23,
+    "word": "scissors",
+    "category": "人造物与用品",
+    "domain": "Basic actions and technology | objects",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 25
+  },
+  {
+    "ordinal": 24,
+    "word": "key",
+    "category": "人造物与用品",
+    "domain": "Basic actions and technology | objects",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 26
+  },
+  {
+    "ordinal": 25,
+    "word": "bed",
+    "category": "人造物与用品",
+    "domain": "The house",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 27
+  },
+  {
+    "ordinal": 26,
+    "word": "microwave",
+    "category": "人造物与用品",
+    "domain": "The house",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 28
+  },
+  {
+    "ordinal": 27,
+    "word": "ladder",
+    "category": "人造物与用品",
+    "domain": "The house",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 29
+  },
+  {
+    "ordinal": 28,
+    "word": "window",
+    "category": "人造物与用品",
+    "domain": "The house",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 30
+  },
+  {
+    "ordinal": 29,
+    "word": "sofa",
+    "category": "人造物与用品",
+    "domain": "The house",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 31
+  },
+  {
+    "ordinal": 30,
+    "word": "believe",
+    "category": "感觉、动作与心理",
+    "domain": "Cognition",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 32
+  },
+  {
+    "ordinal": 31,
+    "word": "learn",
+    "category": "感觉、动作与心理",
+    "domain": "Cognition",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 33
+  },
+  {
+    "ordinal": 32,
+    "word": "memory",
+    "category": "感觉、动作与心理",
+    "domain": "Cognition",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 34
+  },
+  {
+    "ordinal": 33,
+    "word": "mind",
+    "category": "感觉、动作与心理",
+    "domain": "Cognition",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 35
+  },
+  {
+    "ordinal": 34,
+    "word": "think",
+    "category": "感觉、动作与心理",
+    "domain": "Cognition",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 36
+  },
+  {
+    "ordinal": 35,
+    "word": "beautiful",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 37
+  },
+  {
+    "ordinal": 36,
+    "word": "gentle",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 38
+  },
+  {
+    "ordinal": 37,
+    "word": "good",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 39
+  },
+  {
+    "ordinal": 38,
+    "word": "sad",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 40
+  },
+  {
+    "ordinal": 39,
+    "word": "desire",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 41
+  },
+  {
+    "ordinal": 40,
+    "word": "love",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 42
+  },
+  {
+    "ordinal": 41,
+    "word": "misfortune",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 43
+  },
+  {
+    "ordinal": 42,
+    "word": "pain",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 44
+  },
+  {
+    "ordinal": 43,
+    "word": "truth",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 45
+  },
+  {
+    "ordinal": 44,
+    "word": "violence",
+    "category": "感觉、动作与心理",
+    "domain": "Emotions and values",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 46
+  },
+  {
+    "ordinal": 45,
+    "word": "push",
+    "category": "感觉、动作与心理",
+    "domain": "Motion",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 47
+  },
+  {
+    "ordinal": 46,
+    "word": "jump",
+    "category": "感觉、动作与心理",
+    "domain": "Motion",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 48
+  },
+  {
+    "ordinal": 47,
+    "word": "walk",
+    "category": "感觉、动作与心理",
+    "domain": "Motion",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 49
+  },
+  {
+    "ordinal": 48,
+    "word": "throw",
+    "category": "感觉、动作与心理",
+    "domain": "Motion",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 50
+  },
+  {
+    "ordinal": 49,
+    "word": "climb",
+    "category": "感觉、动作与心理",
+    "domain": "Motion",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 51
+  },
+  {
+    "ordinal": 50,
+    "word": "sweet",
+    "category": "感觉、动作与心理",
+    "domain": "Sense perception",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 52
+  },
+  {
+    "ordinal": 51,
+    "word": "smell",
+    "category": "感觉、动作与心理",
+    "domain": "Sense perception",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 53
+  },
+  {
+    "ordinal": 52,
+    "word": "touch",
+    "category": "感觉、动作与心理",
+    "domain": "Sense perception",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 54
+  },
+  {
+    "ordinal": 53,
+    "word": "hear",
+    "category": "感觉、动作与心理",
+    "domain": "Sense perception",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 55
+  },
+  {
+    "ordinal": 54,
+    "word": "bright",
+    "category": "感觉、动作与心理",
+    "domain": "Sense perception",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 56
+  },
+  {
+    "ordinal": 55,
+    "word": "half",
+    "category": "时空与数量",
+    "domain": "Quantity",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 57
+  },
+  {
+    "ordinal": 56,
+    "word": "first",
+    "category": "时空与数量",
+    "domain": "Quantity",
+    "source": "",
+    "choice2_row": 58
+  },
+  {
+    "ordinal": 57,
+    "word": "empty",
+    "category": "时空与数量",
+    "domain": "Quantity",
+    "source": "",
+    "choice2_row": 59
+  },
+  {
+    "ordinal": 58,
+    "word": "third",
+    "category": "时空与数量",
+    "domain": "Quantity",
+    "source": "",
+    "choice2_row": 60
+  },
+  {
+    "ordinal": 59,
+    "word": "everything",
+    "category": "时空与数量",
+    "domain": "Quantity",
+    "source": "",
+    "choice2_row": 61
+  },
+  {
+    "ordinal": 60,
+    "word": "Friday",
+    "category": "时空与数量",
+    "domain": "Time",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 62
+  },
+  {
+    "ordinal": 61,
+    "word": "tomorrow",
+    "category": "时空与数量",
+    "domain": "Time",
+    "source": "",
+    "choice2_row": 63
+  },
+  {
+    "ordinal": 62,
+    "word": "week",
+    "category": "时空与数量",
+    "domain": "Time",
+    "source": "",
+    "choice2_row": 64
+  },
+  {
+    "ordinal": 63,
+    "word": "winter",
+    "category": "时空与数量",
+    "domain": "Time",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 65
+  },
+  {
+    "ordinal": 64,
+    "word": "April",
+    "category": "时空与数量",
+    "domain": "Time",
+    "source": "",
+    "choice2_row": 66
+  },
+  {
+    "ordinal": 65,
+    "word": "above",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 67
+  },
+  {
+    "ordinal": 66,
+    "word": "inside",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 68
+  },
+  {
+    "ordinal": 67,
+    "word": "left",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 69
+  },
+  {
+    "ordinal": 68,
+    "word": "near",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 70
+  },
+  {
+    "ordinal": 69,
+    "word": "east",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "",
+    "choice2_row": 71
+  },
+  {
+    "ordinal": 70,
+    "word": "north",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "",
+    "choice2_row": 72
+  },
+  {
+    "ordinal": 71,
+    "word": "west",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "",
+    "choice2_row": 73
+  },
+  {
+    "ordinal": 72,
+    "word": "south",
+    "category": "时空与数量",
+    "domain": "Spatial relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 74
+  },
+  {
+    "ordinal": 73,
+    "word": "family",
+    "category": "社会属性与关系",
+    "domain": "Kinship",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 75
+  },
+  {
+    "ordinal": 74,
+    "word": "brother",
+    "category": "社会属性与关系",
+    "domain": "Kinship",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 76
+  },
+  {
+    "ordinal": 75,
+    "word": "marriage",
+    "category": "社会属性与关系",
+    "domain": "Kinship",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 77
+  },
+  {
+    "ordinal": 76,
+    "word": "mother",
+    "category": "社会属性与关系",
+    "domain": "Kinship",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 78
+  },
+  {
+    "ordinal": 77,
+    "word": "child",
+    "category": "社会属性与关系",
+    "domain": "Kinship",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 79
+  },
+  {
+    "ordinal": 78,
+    "word": "own",
+    "category": "社会属性与关系",
+    "domain": "Possession",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 80
+  },
+  {
+    "ordinal": 79,
+    "word": "shop",
+    "category": "社会属性与关系",
+    "domain": "Possession",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 81
+  },
+  {
+    "ordinal": 80,
+    "word": "price",
+    "category": "社会属性与关系",
+    "domain": "Possession",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 82
+  },
+  {
+    "ordinal": 81,
+    "word": "borrow",
+    "category": "社会属性与关系",
+    "domain": "Possession",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 83
+  },
+  {
+    "ordinal": 82,
+    "word": "buy",
+    "category": "社会属性与关系",
+    "domain": "Possession",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 84
+  },
+  {
+    "ordinal": 83,
+    "word": "status",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 85
+  },
+  {
+    "ordinal": 84,
+    "word": "king",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 86
+  },
+  {
+    "ordinal": 85,
+    "word": "country",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 87
+  },
+  {
+    "ordinal": 86,
+    "word": "religion",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "semantic-domains-and-their-concepts.xlsx",
+    "choice2_row": 88
+  },
+  {
+    "ordinal": 87,
+    "word": "enemy",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 89
+  },
+  {
+    "ordinal": 88,
+    "word": "team",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 90
+  },
+  {
+    "ordinal": 89,
+    "word": "obligation",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 91
+  },
+  {
+    "ordinal": 90,
+    "word": "discipline",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 92
+  },
+  {
+    "ordinal": 91,
+    "word": "dispute",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 93
+  },
+  {
+    "ordinal": 92,
+    "word": "power",
+    "category": "社会属性与关系",
+    "domain": "Social and political relations",
+    "source": "Idiosyncratic Tower of Babel, Table A1 英译词",
+    "choice2_row": 94
+  }
+]
