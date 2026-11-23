@@ -1,0 +1,59 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: arrangement
+      POSTGRES_USER: arrangement
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U arrangement -d arrangement"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      STUDY_PROFILE: formal
+      STUDY_DATA_ROOT: /data
+      STUDY_MATERIALS_ROOT: /data/materials
+      DATABASE_URL: postgresql+psycopg://arrangement:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}@db:5432/arrangement
+      EXPERIMENTER_KEY_SECRET: ${EXPERIMENTER_KEY_SECRET:?Set EXPERIMENTER_KEY_SECRET in .env.production}
+      RESEARCHER_ADMIN_KEY: ${RESEARCHER_ADMIN_KEY:?Set RESEARCHER_ADMIN_KEY in .env.production}
+      PUBLIC_BASE_URL: https://${DOMAIN:?Set DOMAIN in .env.production}
+      HOST: 0.0.0.0
+      PORT: "3500"
+      API_PORT: "8000"
+      PYTHON_BIN: /opt/venv/bin/python
+    volumes:
+      - app_data:/data
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3500"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in .env.production}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile.production:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+volumes:
+  postgres_data:
+  app_data:
+  caddy_data:
+  caddy_config:

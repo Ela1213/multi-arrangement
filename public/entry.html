@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word arrangement study</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="panel entry-panel">
+    <h1>Word arrangement study</h1>
+    <p id="study-name">Loading study…</p>
+    <p>You will arrange words according to how similar their meanings are. Please use a laptop or desktop computer with a mouse or trackpad.</p>
+    <label for="participant-id">Participant ID</label>
+    <input id="participant-id" autocomplete="off" maxlength="100" pattern="[A-Za-z0-9_-]+">
+    <p class="small">For Prolific participants, this ID is supplied automatically through your study link.</p>
+    <button id="start" disabled>Begin / resume</button>
+    <p id="entry-status" role="status"></p>
+  </main>
+  <script src="/entry.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+# Reference only: English translations from Table A1 in the user-supplied figure.
+# The source study used Chinese words. Review these English translations with UK participants before formal collection.
+# Animals (10)
+ant
+cat
+elephant
+giraffe
+panda
+rabbit
+rat
+sparrow
+tiger
+tortoise
+# Face/body parts (10)
+ankle
+arm
+ear
+eye
+finger
+knee
+lips
+nose
+shoulder
+thigh
+# Artifacts (20)
+air conditioner
+ax
+bed
+broom
+cabinet
+chair
+chopsticks
+computer mouse
+hammer
+key
+microwave
+pencil
+refrigerator
+scissors
+sofa
+spoon
+table
+television
+toothbrush
+washing machine
+# Emotional nonobject words (30)
+anger
+antipathy
+apathy
+charity
+comfortable
+death
+debt
+depressed
+disease
+dispute
+error
+excited
+fate
+fault
+fear
+fraud
+friendship
+happy
+heaven
+hostility
+loving heart
+magic power
+marriage
+miracle
+proud
+sad
+scenery
+splendor
+trauma
+violence
+# Nonemotional nonobject words (20)
+agreement
+business
+characteristic
+concept
+content
+data
+discipline
+effect
+identity
+method
+obligation
+phenomenon
+process
+reason
+relationship
+result
+society
+status
+system
+team

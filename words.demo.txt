@@ -1,0 +1,8 @@
+apple
+banana
+cat
+dog
+hammer
+knife
+chair
+sofa
