@@ -16,13 +16,6 @@ function shuffle(items, random) {
 }
 function spreadSlots(count, seed) {
   const random = seededRandom(seed);
-  if (count <= 25) {
-    const offset = random() * Math.PI * 2;
-    return Array.from({ length: count }, (_, i) => {
-      const a = offset + 2 * Math.PI * i / count;
-      return { x: W / 2 + 605 * Math.cos(a) - 48, y: H / 2 + 420 * Math.sin(a) - 14 };
-    });
-  }
   // Evenly spaced staggered slots in a narrow band around the circle.
   const candidates = [];
   for (let row = 0, y = 12; y <= 864; row++, y += 38) {
@@ -36,6 +29,19 @@ function spreadSlots(count, seed) {
   candidates.sort((a, b) => a.score - b.score);
   if (candidates.length < count) throw new Error(`Only ${candidates.length} starting positions for ${count} words`);
   return shuffle(candidates.slice(0, count), random);
+}
+function placeSubsetCards(cards, arena, seed) {
+  const items = [...cards.children];
+  const offset = seededRandom(seed)() * Math.PI * 2;
+  const cx = arena.offsetLeft + arena.offsetWidth / 2;
+  const cy = arena.offsetTop + arena.offsetHeight / 2;
+  // The smaller subset arena leaves room above and below for complete cards.
+  const rx = 475, ry = 420;
+  items.forEach((card, i) => {
+    const angle = offset + 2 * Math.PI * i / items.length;
+    card.style.left = `${Math.round(cx + rx * Math.cos(angle) - card.offsetWidth / 2)}px`;
+    card.style.top = `${Math.round(cy + ry * Math.sin(angle) - card.offsetHeight / 2)}px`;
+  });
 }
 async function api(route, options = {}) {
   const response = await fetch(`/api/ma${route}`, { ...options, headers: { ...(options.headers || {}), "x-participant-invite": token } });
@@ -152,10 +158,11 @@ function renderTrial(trial) {
   const workspace = document.getElementById("workspace"), arena = document.getElementById("arena"), cards = document.getElementById("cards");
   cards.replaceChildren(); drawRays(null); topCard = 1; setSelection([]);
   const count = trial.subset_indices.length;
+  arena.classList.toggle("subset-arena", count <= 25);
   document.getElementById("trial-label").textContent = `Round ${trial.trial_index + 1}`;
   const random = seededRandom(`${session.session_id}:${trial.trial_index}:labels`);
   const displayOrder = shuffle(trial.subset_indices, random);
-  const slots = spreadSlots(count, `${session.session_id}:${trial.trial_index}:slots`);
+  const slots = count > 25 ? spreadSlots(count, `${session.session_id}:${trial.trial_index}:slots`) : null;
   displayOrder.forEach((ordinal, place) => {
     const stimulus = session.stimuli.find((item) => item.ordinal === ordinal);
     const card = document.createElement("button"); card.type = "button"; card.className = count > 50 ? "word-card dense" : "word-card";
@@ -163,9 +170,10 @@ function renderTrial(trial) {
     if (stimulus?.media_url?.startsWith("/stimuli/")) {
       const image = document.createElement("img"); image.src = stimulus.media_url; image.alt = card.title; image.className = "word-image"; card.append(image);
     } else card.textContent = card.title;
-    card.style.left = `${slots[place].x}px`; card.style.top = `${slots[place].y}px`;
+    if (slots) { card.style.left = `${slots[place].x}px`; card.style.top = `${slots[place].y}px`; }
     makeDraggable(card, workspace); cards.append(card);
   });
+  if (!slots) placeSubsetCards(cards, arena, `${session.session_id}:${trial.trial_index}:slots`);
   trialStart = performance.now(); zoom = 1; fitWorkspace(); updatePlacementProgress(); setStatus("");
 }
 async function completeTask() {

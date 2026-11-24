@@ -57,6 +57,8 @@ def materials():
         digest.update((MATERIALS / "public" / "stimuli" / filename).read_bytes())
     if config.get("instruction_image"):
         digest.update((MATERIALS / "public" / Path(config["instruction_image"]).name).read_bytes())
+    # Match Node's v2 material hash and avoid reusing a legacy study with stale stimuli.
+    digest.update(b"material-binding-v2")
     version = digest.hexdigest()[:16]
     return words, images, config, version
 
@@ -92,6 +94,16 @@ def request(method, route, key, body=None):
         raise RuntimeError(f"API {error.code}: {error.read().decode()}") from error
 
 
+def study_has_words(manifest, words, key):
+    if manifest.get("profile") != PROFILE or manifest.get("words") != words:
+        return False
+    try:
+        stimuli = request("GET", f"/studies/{manifest['study_id']}/stimuli", key)
+    except (KeyError, RuntimeError):
+        return False
+    return [item["filename"] for item in stimuli] == words
+
+
 def main():
     DATA.mkdir(parents=True, exist_ok=True)
     words, images, config, version = materials()
@@ -103,14 +115,13 @@ def main():
     version_file = DATA / f"study-manifest.{PROFILE}.{version}.json"
     if version_file.exists():
         archived = json.loads(version_file.read_text(encoding="utf-8"))
-        request("GET", f"/studies/{archived['study_id']}", key)
-        manifest_file.write_text(json.dumps(archived, indent=2, ensure_ascii=False), encoding="utf-8")
-        print(f"Restored {PROFILE} study: {archived['study_id']} version {version}")
-        return
+        if study_has_words(archived, words, key):
+            manifest_file.write_text(json.dumps(archived, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"Restored {PROFILE} study: {archived['study_id']} version {version}")
+            return
     if manifest_file.exists():
         old = json.loads(manifest_file.read_text(encoding="utf-8"))
-        if old.get("version") == version:
-            request("GET", f"/studies/{old['study_id']}", key)
+        if old.get("version") == version and study_has_words(old, words, key):
             version_file.write_text(json.dumps(old, indent=2, ensure_ascii=False), encoding="utf-8")
             print(f"Existing {PROFILE} study: {old['study_id']} version {version}")
             return

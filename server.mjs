@@ -80,6 +80,8 @@ async function material() {
   }
   const instructionImage = override.instruction_image ?? base.instruction_image;
   if (instructionImage) hash.update(await readAsync(path.join(MATERIALS, "public", path.basename(instructionImage))));
+  // v2 prevents a legacy manifest from reusing this material hash with the wrong stimuli.
+  hash.update("material-binding-v2");
   const version = hash.digest("hex").slice(0, 16);
   return { ...base, ...override, ma_config: { ...base.ma_config, ...(override.ma_config || {}) },
     profile: PROFILE, version, words, word_images: wordImages, materials_ready: words.length >= 3 };
@@ -87,7 +89,11 @@ async function material() {
 
 async function manifest(version) {
   const value = JSON.parse(await readAsync(path.join(DATA, `study-manifest.${PROFILE}.json`), "utf8"));
-  if (value.version !== version || value.profile !== PROFILE) throw new Error("Study version is not prepared");
+  const current = await material();
+  if (value.version !== version || value.profile !== PROFILE ||
+      JSON.stringify(value.words) !== JSON.stringify(current.words)) {
+    throw new Error("Study version is not prepared for the current word list");
+  }
   return value;
 }
 

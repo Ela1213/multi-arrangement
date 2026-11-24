@@ -127,6 +127,7 @@ button.secondary { background: #e6edf5; color: #173e70; border: 1px solid #b7c9d
 .experiment-body #workspace-frame { flex: 1 1 auto; min-height: 0; width: 100%; overflow: hidden; background: #101419; }
 .experiment-body #workspace { background: #101419; }
 .experiment-body #arena { left: 545px; top: 35px; width: 830px; height: 830px; }
+.experiment-body #arena.subset-arena { left: 585px; top: 75px; width: 750px; height: 750px; }
 .experiment-controls { flex: 0 0 64px; box-sizing: border-box; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 5px 24px; background: #101419; }
 .zoom-controls { display: flex; align-items: center; gap: 12px; justify-self: start; }
 .zoom-controls button { background: #1d2730; border: 1px solid #70818c; padding: 7px 12px; font-size: 16px; }
