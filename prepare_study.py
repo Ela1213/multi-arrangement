@@ -23,11 +23,12 @@ WORD_FILE = {"demo": "words.demo.txt", "bi90": "words.bi90-reference.txt", "form
 
 
 def materials():
-    words_text = (MATERIALS / WORD_FILE).read_text(encoding="utf-8")
-    config_text = (MATERIALS / "arrangement.config.json").read_text(encoding="utf-8")
-    profile_text = (MATERIALS / "arrangement.bi90.config.json").read_text(encoding="utf-8") if PROFILE == "bi90" else ""
+    # Preserve CRLF bytes when hashing: Node's material() reads UTF-8 without newline translation.
+    words_text = (MATERIALS / WORD_FILE).read_bytes().decode("utf-8")
+    config_text = (MATERIALS / "arrangement.config.json").read_bytes().decode("utf-8")
+    profile_text = (MATERIALS / "arrangement.bi90.config.json").read_bytes().decode("utf-8") if PROFILE == "bi90" else ""
     images_file = MATERIALS / "word-images.json"
-    images_text = images_file.read_text(encoding="utf-8")
+    images_text = images_file.read_bytes().decode("utf-8")
     images = json.loads(images_text) if images_text else {}
     words = [line.strip() for line in words_text.splitlines() if line.strip() and not line.startswith("#")]
     if words and (len(words) < 3 or len({word.casefold() for word in words}) != len(words)):

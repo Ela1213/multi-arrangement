@@ -102,11 +102,16 @@ function participantForToken(token, version) {
 }
 
 async function ma(route, { method = "GET", body, admin = false } = {}) {
-  const response = await fetch(`${MA_ORIGIN}/api/v1${route}`, {
-    method, headers: { ...(body ? { "content-type": "application/json" } : {}),
-      ...(admin && MA_KEY ? { "x-experimenter-key": MA_KEY } : {}) },
-    body: body ? JSON.stringify(body) : undefined,
-  });
+  let response;
+  try {
+    response = await fetch(`${MA_ORIGIN}/api/v1${route}`, {
+      method, headers: { ...(body ? { "content-type": "application/json" } : {}),
+        ...(admin && MA_KEY ? { "x-experimenter-key": MA_KEY } : {}) },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  } catch {
+    throw new Error("Arrangement backend unavailable; contact the researcher");
+  }
   const data = await response.json();
   if (!response.ok) throw new Error(`Arrangement API ${response.status}: ${JSON.stringify(data)}`);
   return data;
@@ -265,13 +270,21 @@ const assets = {
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
-    if (req.method === "GET" && url.pathname === "/api/health") return send(res, 200, { status: "ok", profile: PROFILE });
+    if (req.method === "GET" && url.pathname === "/api/health") {
+      try {
+        const backend = await fetch(`${MA_ORIGIN}/health/db`, { signal: AbortSignal.timeout(3000) });
+        if (!backend.ok) throw new Error("Backend database unavailable");
+        return send(res, 200, { status: "ok", profile: PROFILE, backend: "ok" });
+      } catch {
+        return send(res, 503, { status: "error", profile: PROFILE, backend: "unavailable" });
+      }
+    }
     if (req.method === "GET" && url.pathname === "/api/config") {
       const current = await material();
       return send(res, 200, { study_name: current.study_name, profile: PROFILE,
         version: current.version, words: current.words, instructions: current.ma_instructions,
         instruction_image: current.instruction_image || "", completion_url: current.completion_url || "",
-        ma_config: current.ma_config,
+        ma_config: current.ma_config, production: process.env.APP_ENV === "production",
         materials_ready: current.materials_ready });
     }
     if (req.method === "POST" && url.pathname === "/api/researcher/config") {
