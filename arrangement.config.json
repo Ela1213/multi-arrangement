@@ -2,8 +2,8 @@
   "study_name": "Study 3: English word similarity arrangement (93 words)",
   "ma_instructions": [
     "Welcome to the similarity arrangement experiment.",
-    "Please arrange the words according to how similar they seem. You can use “Left mouse button” to select and drag every item into the white circle.",
-    "Similar items are placed close together; dissimilar items are placed far apart. The distance between two items represents their dissimilarity.",
+    "Please arrange the words according to how similar they seem. You can use the **left mouse button** to select and drag items into the white circle. To select and move **multiple items** at once, click and hold, then drag across the items.",
+    "**Similar items are placed close together; dissimilar items are placed far apart.** The distance between two items represents their dissimilarity.",
     "Consider this example:"
   ],
   "ma_config": {

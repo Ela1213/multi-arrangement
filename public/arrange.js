@@ -4,6 +4,26 @@ const linkParams = new URLSearchParams(location.search);
 const W = 1920, H = 900, CW = 120, CH = 38;
 let session, currentTrial, trialStart, topCard = 1, zoom = 1, timeLimitMinutes = 60, sessionStart = 0;
 
+function appendEmphasis(parent, source) {
+  const parts = String(source).split(/(\*\*[^*]+\*\*)/g);
+  for (const part of parts) {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      const strong = document.createElement("strong"); strong.textContent = part.slice(2, -2); parent.append(strong);
+    } else parent.append(document.createTextNode(part));
+  }
+}
+
+function continuationUrl(raw) {
+  const next = new URL(raw, location.href);
+  for (const key of ["PROLIFIC_PID", "STUDY_ID", "SESSION_ID"]) {
+    if (linkParams.has(key)) next.searchParams.set(key, linkParams.get(key));
+  }
+  const participantId = linkParams.get("PROLIFIC_PID") || linkParams.get("participant_id");
+  if (participantId) next.searchParams.set("ARRANGEMENT_PARTICIPANT_ID", participantId);
+  if (linkParams.has("version")) next.searchParams.set("ARRANGEMENT_VERSION", linkParams.get("version"));
+  return next.href;
+}
+
 function seededRandom(text) {
   let seed = 2166136261;
   for (const char of text) { seed ^= char.charCodeAt(0); seed = Math.imul(seed, 16777619); }
@@ -182,7 +202,7 @@ async function completeTask() {
       body: JSON.stringify({ participant_id: linkParams.get("PROLIFIC_PID") || linkParams.get("participant_id") || "" }) });
     const result = await response.json(); if (!response.ok) throw new Error(result.error || `HTTP ${response.status}`);
     document.getElementById("task").hidden = true; document.getElementById("done").hidden = false;
-    if (result.completion_url) { const link = document.getElementById("prolific-link"); link.href = result.completion_url; link.hidden = false; setTimeout(() => location.assign(result.completion_url), 3000); }
+    if (result.completion_url) { const destination = continuationUrl(result.completion_url); const link = document.getElementById("prolific-link"); link.href = destination; link.hidden = false; setTimeout(() => location.assign(destination), 3000); }
     setStatus("");
   } catch (error) { setStatus(`Could not finish: ${error.message}. Reload to retry.`); }
 }
@@ -194,7 +214,7 @@ async function initialise() {
     document.getElementById("study-name").textContent = "Similarity Arrangement Experiment";
     timeLimitMinutes = active.ma_config?.time_limit_minutes || 60;
     const list = document.getElementById("instructions");
-    for (const line of active.instructions || []) { const p = document.createElement("p"); p.textContent = line; list.append(p); }
+    for (const line of active.instructions || []) { const p = document.createElement("p"); appendEmphasis(p, line); list.append(p); }
     if (active.instruction_image) {
       const image = document.getElementById("instruction-image");
       image.src = active.instruction_image;
