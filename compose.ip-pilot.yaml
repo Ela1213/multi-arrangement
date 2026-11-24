@@ -1,0 +1,25 @@
+name: ma-ip-pilot
+
+# Temporary HTTP pilot behind the existing Nginx server at 8.208.81.116.
+# Do not recruit paid Prolific participants until HTTPS and production mode are configured.
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    restart: unless-stopped
+    environment:
+      APP_ENV: development
+      STUDY_PROFILE: formal
+      STUDY_DATA_ROOT: /data
+      STUDY_MATERIALS_ROOT: /data/materials
+      DATABASE_URL: sqlite:////data/ma.sqlite3
+      PUBLIC_BASE_URL: http://8.208.81.116
+      HOST: 0.0.0.0
+      PORT: "3500"
+      API_PORT: "8000"
+      PYTHON_BIN: /opt/venv/bin/python
+    volumes:
+      - ${MA_DATA_DIR:-/var/www/multi-arrangement/data}:/data
+    ports:
+      - "127.0.0.1:3102:3500"
